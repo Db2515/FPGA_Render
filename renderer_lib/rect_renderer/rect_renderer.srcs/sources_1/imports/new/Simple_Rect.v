@@ -4,9 +4,12 @@ module rect_renderer (input wire program,
                       input wire[31:0] color_in,
                       input wire [10:0] shape_width,
                       input wire [11:0] shape_height, 
+                      output wire program_out,
                       output wire [10:0] x_out,
                       output wire [11:0] y_out,
-                      output wire [31:0] color_out);
+                      output wire [31:0] color_out,
+                      output wire [10:0] shape_width_out,
+                      output wire [11:0] shape_height_out);
 
     reg [11:0] xcoord = 0;
     reg [12:0] ycoord = 0;
@@ -27,6 +30,7 @@ module rect_renderer (input wire program,
                 
     end
     
+    assign program_out = program;
     assign x_out = x;
     assign y_out = y;
         
@@ -34,5 +38,8 @@ module rect_renderer (input wire program,
     assign color_out = x >= xcoord & x < xcoord + width 
                     & y >= ycoord & y < ycoord + height
                     ? color : color_in;
+                    
+    assign shape_width_out = shape_width;
+    assign shape_height_out = shape_height;
                     
 endmodule
