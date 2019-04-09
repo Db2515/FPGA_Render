@@ -3,6 +3,10 @@
 #########
 *
 !*/
+renderer_lib/rect_renderer/rect_renderer.cache/
+renderer_lib/rect_renderer/rect_renderer.ip_user_files/
+renderer_lib/rect_renderer/rect_renderer.runs/
+renderer_lib/rect_renderer/rect_renderer.sim/
 !.gitignore
 ###########################################################################
 ##	VIVADO
