@@ -30,8 +30,9 @@ module rect_renderer (input wire program,
     assign x_out = x;
     assign y_out = y;
         
-    assign color_out = x >= xcoord & x <= xcoord + width 
-                    & y >= ycoord & y <= ycoord + height
+    // If program = 1 color = color_in so in either case the inputs will be passed through
+    assign color_out = x >= xcoord & x < xcoord + width 
+                    & y >= ycoord & y < ycoord + height
                     ? color : color_in;
                     
 endmodule
