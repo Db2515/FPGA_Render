@@ -60,12 +60,30 @@ module rect_renderer_tb();
             x = i;
             for(integer j = 0; j < 2160; j = j + 135) begin
                 y = j;
-                if (color_out != 'hFF000000) $display("%d %d Actual color_out %h, Expected color_out %h", i, j, color_out, 'hFF000000); 
+                if (color_out != 'hFF000000) $display("Initial Setup: %d %d Actual color_out %h, Expected color_out %h", i, j, color_out, 'hFF000000); 
                 #20;
             end
         end
         
-
+        // Test shape_color change
+        // Set shape_color to RED
+        program = 1;
+        x = 0;
+        y = 0;
+        color_in = 'hFFFF0000;
+        #40;
+        program = 0;
+        //Set background color to BLUE this should not been seen as shape is full screen
+        // Instead we should see RED
+        color_in = 'hFF0000FF;
+        for(integer i = 0; i < 1080; i = i + 135) begin
+            x = i;
+            for(integer j = 0; j < 2160; j = j + 135) begin
+                y = j;
+                if (color_out != 'hFFFF0000) $display("Red Color: %d %d Actual color_out %h, Expected color_out %h", i, j, color_out, 'hFFFF0000); 
+                #20;
+            end
+        end
         $finish;
     end
     
