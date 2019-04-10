@@ -1,4 +1,4 @@
-module rect_renderer (input wire program,
+module rect_renderer (input wire program_in,
                       input wire [10:0] x, 
                       input wire [11:0] y,
                       input wire[31:0] color_in,
@@ -19,7 +19,7 @@ module rect_renderer (input wire program,
     
     always @(*) 
     begin
-        if (program == 1)
+        if (program_in == 1)
             begin
                 xcoord = x;
                 ycoord = y;
@@ -30,7 +30,7 @@ module rect_renderer (input wire program,
                 
     end
     
-    assign program_out = program;
+    assign program_out = program_in;
     assign x_out = x;
     assign y_out = y;
         

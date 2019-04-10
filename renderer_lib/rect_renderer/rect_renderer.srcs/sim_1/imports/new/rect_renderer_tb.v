@@ -22,7 +22,7 @@
 
 module rect_renderer_tb();
     
-    reg program;
+    reg program_in;
     reg [10:0] x; 
     reg [11:0] y;
     reg [31:0] color_in;
@@ -33,7 +33,7 @@ module rect_renderer_tb();
     wire [31:0] color_out;
     
     rect_renderer DUT(
-        .program(program),
+        .program_in(program_in),
         .x(x),
         .y(y),
         .color_in(color_in),
@@ -49,7 +49,7 @@ module rect_renderer_tb();
         
     initial begin 
         // Set shape to cover entire screen as black rect
-        program = 1;
+        program_in = 1;
         x = 0;
         y = 0;
         shape_width = 1080;
@@ -57,7 +57,7 @@ module rect_renderer_tb();
         color_in = 'hFF000000;
         #40;
         // Test sample of pixels output black color
-        program = 0;
+        program_in = 0;
         //Set background color to BLUE this should not been seen as shape is full screen
         color_in = 'hFF0000FF;
         for(i = 0; i < 1080; i = i + 135) begin
@@ -72,12 +72,12 @@ module rect_renderer_tb();
         
         // Test shape_color change
         // Set shape_color to RED
-        program = 1;
+        program_in = 1;
         x = 0;
         y = 0;
         color_in = 'hFFFF0000;
         #40;
-        program = 0;
+        program_in = 0;
         //Set background color to BLUE this should not been seen as shape is full screen
         // Instead we should see RED
         color_in = 'hFF0000FF;
@@ -93,13 +93,13 @@ module rect_renderer_tb();
         
         // Test shape dimension change
         // Half the width, shape_color still RED
-        program = 1;
+        program_in = 1;
         x = 0;
         y = 0;
         color_in = 'hFFFF0000;
         shape_width = 540;
         #40;
-        program = 0;
+        program_in = 0;
         //Set background color to BLUE this should not been seen as shape is full screen
         // Instead we should see RED
         color_in = 'hFF0000FF;
@@ -118,12 +118,12 @@ module rect_renderer_tb();
         
         // Test shape position change
         // Move the rect to second half of screen
-        program = 1;
+        program_in = 1;
         x = 540;
         y = 0;
         color_in = 'hFFFF0000;
         #40;
-        program = 0;
+        program_in = 0;
         //Set background color to BLUE this should not been seen as shape is full screen
         // Instead we should see RED
         color_in = 'hFF0000FF;
