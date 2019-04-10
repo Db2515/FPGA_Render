@@ -1,0 +1,163 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x27BC95F627BC95F6",
+      "device": "xc7a100tcsg324-1",
+      "name": "board_2x2",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2018.3",
+      "validated": "true"
+    },
+    "design_tree": {
+      "simple_output_0": "",
+      "Rect": ""
+    },
+    "ports": {
+      "y_out": {
+        "direction": "O",
+        "left": "11",
+        "right": "0"
+      },
+      "x_out": {
+        "direction": "O",
+        "left": "10",
+        "right": "0"
+      },
+      "color_out": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "program_in": {
+        "direction": "I"
+      },
+      "y": {
+        "direction": "I",
+        "left": "11",
+        "right": "0"
+      },
+      "shape_height": {
+        "direction": "I",
+        "left": "11",
+        "right": "0"
+      },
+      "shape_width": {
+        "direction": "I",
+        "left": "10",
+        "right": "0"
+      },
+      "x": {
+        "direction": "I",
+        "left": "10",
+        "right": "0"
+      },
+      "color_in": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      }
+    },
+    "components": {
+      "simple_output_0": {
+        "vlnv": "user.org:Renderer:simple_output:1.0",
+        "xci_name": "board_2x2_simple_output_0_0"
+      },
+      "Rect": {
+        "vlnv": "user.org:Renderer:rect_renderer:1.0",
+        "xci_name": "board_2x2_rect_renderer_0_0"
+      }
+    },
+    "nets": {
+      "simple_output_0_y_out": {
+        "ports": [
+          "simple_output_0/y_out",
+          "y_out"
+        ]
+      },
+      "simple_output_0_x_out": {
+        "ports": [
+          "simple_output_0/x_out",
+          "x_out"
+        ]
+      },
+      "simple_output_0_color_out": {
+        "ports": [
+          "simple_output_0/color_out",
+          "color_out"
+        ]
+      },
+      "rect_renderer_0_program_out": {
+        "ports": [
+          "Rect/program_out",
+          "simple_output_0/program_in"
+        ]
+      },
+      "rect_renderer_0_x_out": {
+        "ports": [
+          "Rect/x_out",
+          "simple_output_0/x"
+        ]
+      },
+      "rect_renderer_0_y_out": {
+        "ports": [
+          "Rect/y_out",
+          "simple_output_0/y"
+        ]
+      },
+      "rect_renderer_0_color_out": {
+        "ports": [
+          "Rect/color_out",
+          "simple_output_0/color_in"
+        ]
+      },
+      "rect_renderer_0_shape_width_out": {
+        "ports": [
+          "Rect/shape_width_out",
+          "simple_output_0/shape_width"
+        ]
+      },
+      "rect_renderer_0_shape_height_out": {
+        "ports": [
+          "Rect/shape_height_out",
+          "simple_output_0/shape_height"
+        ]
+      },
+      "program_in_0_1": {
+        "ports": [
+          "program_in",
+          "Rect/program_in"
+        ]
+      },
+      "y_0_1": {
+        "ports": [
+          "y",
+          "Rect/y"
+        ]
+      },
+      "shape_height_0_1": {
+        "ports": [
+          "shape_height",
+          "Rect/shape_height"
+        ]
+      },
+      "shape_width_0_1": {
+        "ports": [
+          "shape_width",
+          "Rect/shape_width"
+        ]
+      },
+      "x_0_1": {
+        "ports": [
+          "x",
+          "Rect/x"
+        ]
+      },
+      "color_in_0_1": {
+        "ports": [
+          "color_in",
+          "Rect/color_in"
+        ]
+      }
+    }
+  }
+}
