@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module simple_output(input wire program_in,
+module simple_output(input wire [5:0] program_in,
                       input wire [10:0] x, 
                       input wire [11:0] y,
                       input wire[31:0] color_in,
