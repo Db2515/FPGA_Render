@@ -4,6 +4,24 @@
   <spirit:library>Renderer</spirit:library>
   <spirit:name>rect_renderer</spirit:name>
   <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
       <spirit:view>
@@ -18,7 +36,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>8940f5ff</spirit:value>
+            <spirit:value>9447169c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -34,7 +52,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0acf077f</spirit:value>
+            <spirit:value>9447169c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -49,7 +67,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2a5abd4d</spirit:value>
+            <spirit:value>31b34b97</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -63,16 +81,33 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>f92e9879</spirit:value>
+            <spirit:value>6e14c053</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
     </spirit:views>
     <spirit:ports>
       <spirit:port>
+        <spirit:name>clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>program_in</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">5</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>wire</spirit:typeName>
@@ -171,6 +206,10 @@
         <spirit:name>program_out</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">5</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>wire</spirit:typeName>
@@ -266,22 +305,21 @@
         </spirit:wire>
       </spirit:port>
     </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
+        <spirit:name>SHAPE_ID</spirit:name>
+        <spirit:displayName>Shape Id</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SHAPE_ID">1</spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
   </spirit:model>
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>constrs_1/imports/dan/FPGA_Render/Basys-3-Master.xdc</spirit:name>
-        <spirit:userFileType>xdc</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>constrs_1/imports/dan/digilent-xdc/Nexys-A7-100T-Master.xdc</spirit:name>
-        <spirit:userFileType>xdc</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>sources_1/imports/new/Simple_Rect.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_0acf077f</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_9447169c</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -306,16 +344,21 @@
       <spirit:file>
         <spirit:name>xgui/rect_renderer_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_f92e9879</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_6e14c053</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>Simple Rectangle Renderer with variable color, position and dimensions</spirit:description>
+  <spirit:description>Simple Rectangle Renderer with variable color, position and dimensions with SHAPE_ID parameter</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">rect_renderer_v1_0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>SHAPE_ID</spirit:name>
+      <spirit:displayName>Shape Id</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SHAPE_ID" spirit:minimum="1" spirit:maximum="64" spirit:rangeType="long">1</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -349,8 +392,8 @@
       <xilinx:displayName>Simple Rectangle Renderer</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:vendorDisplayName>DB2515</xilinx:vendorDisplayName>
-      <xilinx:coreRevision>3</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-04-10T12:35:34Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>8</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-04-17T11:15:54Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@51d4de01_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@7ed0c05b_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
@@ -376,13 +419,77 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@8d0ea01_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@681f1a3f_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@d2e95da_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41f0cc_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@426feb31_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e4ecd61_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3e421b2_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5a8f5e2_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41a50f5e_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33936b40_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f9fc4cf_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61e73eb0_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a130cd0_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73713024_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5d7390dd_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18fc0f05_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@106233bc_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@648cd78c_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f909bc_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@44db9b6b_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f8297b5_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5cc01da7_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d8af54f_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3b78ae42_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@39535640_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33e8a77_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d4f7fce_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50e50c36_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@20944e83_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7e5addec_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48f9384a_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2aee3064_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65dd2e5e_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@597dec88_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58fc205_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6ebd39f2_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5204f33d_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38babd7a_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6624449e_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@74955631_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1eafef7f_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@51a66264_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12cd6fff_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c535d2e_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a4f5bd4_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@69b4bb56_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@586db732_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@bff8293_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58dba29b_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38a5074f_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@28d8b88c_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@263c3a00_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4aa4abd7_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17a9ee23_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f399a1b_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5312930_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7603cbf2_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d976158_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@639a196a_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@772ca9b8_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63f6b4a3_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4656bb2a_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ba2ba22_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4cdfbfd6_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@afd6cd4_ARCHIVE_LOCATION">/home/dan/FPGA_Render/renderer_lib/rect_renderer/rect_renderer.srcs</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="7bf7862e"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="cd1ceef4"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="23339402"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a88d4390"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6359e16b"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="fbbf9cb1"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="95043789"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="8d74f3ea"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>
