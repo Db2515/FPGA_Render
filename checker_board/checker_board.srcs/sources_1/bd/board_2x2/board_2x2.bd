@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x27BC95F627BC95F6",
+      "boundary_crc": "0x2E572A37BB6CC256",
       "device": "xc7a100tcsg324-1",
       "name": "board_2x2",
       "synth_flow_mode": "Hierarchical",
@@ -9,8 +9,10 @@
       "validated": "true"
     },
     "design_tree": {
-      "simple_output_0": "",
-      "Rect": ""
+      "checkerboard_input_0": "",
+      "top_left": "",
+      "bottom_right": "",
+      "simple_output_0": ""
     },
     "ports": {
       "y_out": {
@@ -28,46 +30,129 @@
         "left": "31",
         "right": "0"
       },
-      "program_in": {
-        "direction": "I"
-      },
-      "y": {
+      "clk": {
+        "type": "clk",
         "direction": "I",
-        "left": "11",
-        "right": "0"
-      },
-      "shape_height": {
-        "direction": "I",
-        "left": "11",
-        "right": "0"
-      },
-      "shape_width": {
-        "direction": "I",
-        "left": "10",
-        "right": "0"
-      },
-      "x": {
-        "direction": "I",
-        "left": "10",
-        "right": "0"
-      },
-      "color_in": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "board_2x2_clk_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0"
+          }
+        }
       }
     },
     "components": {
-      "simple_output_0": {
-        "vlnv": "user.org:Renderer:simple_output:1.0",
-        "xci_name": "board_2x2_simple_output_0_0"
+      "checkerboard_input_0": {
+        "vlnv": "user.org:XUP:checkerboard_input:1.0",
+        "xci_name": "board_2x2_checkerboard_input_0_0"
       },
-      "Rect": {
+      "top_left": {
         "vlnv": "user.org:Renderer:rect_renderer:1.0",
-        "xci_name": "board_2x2_rect_renderer_0_0"
+        "xci_name": "board_2x2_rect_renderer_0_1",
+        "parameters": {
+          "SHAPE_ID": {
+            "value": "2"
+          }
+        }
+      },
+      "bottom_right": {
+        "vlnv": "user.org:Renderer:rect_renderer:1.0",
+        "xci_name": "board_2x2_rect_renderer_0_2",
+        "parameters": {
+          "SHAPE_ID": {
+            "value": "3"
+          }
+        }
+      },
+      "simple_output_0": {
+        "vlnv": "user.org:XUP:simple_output:1.0",
+        "xci_name": "board_2x2_simple_output_0_1"
       }
     },
     "nets": {
+      "top_left_program_out": {
+        "ports": [
+          "top_left/program_out",
+          "bottom_right/program_in"
+        ]
+      },
+      "top_left_x_out": {
+        "ports": [
+          "top_left/x_out",
+          "bottom_right/x"
+        ]
+      },
+      "top_left_y_out": {
+        "ports": [
+          "top_left/y_out",
+          "bottom_right/y"
+        ]
+      },
+      "top_left_color_out": {
+        "ports": [
+          "top_left/color_out",
+          "bottom_right/color_in"
+        ]
+      },
+      "top_left_shape_width_out": {
+        "ports": [
+          "top_left/shape_width_out",
+          "bottom_right/shape_width"
+        ]
+      },
+      "top_left_shape_height_out": {
+        "ports": [
+          "top_left/shape_height_out",
+          "bottom_right/shape_height"
+        ]
+      },
+      "bottom_right_program_out": {
+        "ports": [
+          "bottom_right/program_out",
+          "simple_output_0/program_in"
+        ]
+      },
+      "bottom_right_x_out": {
+        "ports": [
+          "bottom_right/x_out",
+          "simple_output_0/x"
+        ]
+      },
+      "bottom_right_y_out": {
+        "ports": [
+          "bottom_right/y_out",
+          "simple_output_0/y"
+        ]
+      },
+      "bottom_right_color_out": {
+        "ports": [
+          "bottom_right/color_out",
+          "simple_output_0/color_in"
+        ]
+      },
+      "bottom_right_shape_width_out": {
+        "ports": [
+          "bottom_right/shape_width_out",
+          "simple_output_0/shape_width"
+        ]
+      },
+      "bottom_right_shape_height_out": {
+        "ports": [
+          "bottom_right/shape_height_out",
+          "simple_output_0/shape_height"
+        ]
+      },
       "simple_output_0_y_out": {
         "ports": [
           "simple_output_0/y_out",
@@ -86,76 +171,48 @@
           "color_out"
         ]
       },
-      "rect_renderer_0_program_out": {
+      "clk_0_1": {
         "ports": [
-          "Rect/program_out",
-          "simple_output_0/program_in"
+          "clk",
+          "checkerboard_input_0/clk",
+          "top_left/clk",
+          "bottom_right/clk"
         ]
       },
-      "rect_renderer_0_x_out": {
+      "checkerboard_input_0_program_out": {
         "ports": [
-          "Rect/x_out",
-          "simple_output_0/x"
+          "checkerboard_input_0/program_out",
+          "top_left/program_in"
         ]
       },
-      "rect_renderer_0_y_out": {
+      "checkerboard_input_0_x_out": {
         "ports": [
-          "Rect/y_out",
-          "simple_output_0/y"
+          "checkerboard_input_0/x_out",
+          "top_left/x"
         ]
       },
-      "rect_renderer_0_color_out": {
+      "checkerboard_input_0_y_out": {
         "ports": [
-          "Rect/color_out",
-          "simple_output_0/color_in"
+          "checkerboard_input_0/y_out",
+          "top_left/y"
         ]
       },
-      "rect_renderer_0_shape_width_out": {
+      "checkerboard_input_0_color_out": {
         "ports": [
-          "Rect/shape_width_out",
-          "simple_output_0/shape_width"
+          "checkerboard_input_0/color_out",
+          "top_left/color_in"
         ]
       },
-      "rect_renderer_0_shape_height_out": {
+      "checkerboard_input_0_shape_width_out": {
         "ports": [
-          "Rect/shape_height_out",
-          "simple_output_0/shape_height"
+          "checkerboard_input_0/shape_width_out",
+          "top_left/shape_width"
         ]
       },
-      "program_in_0_1": {
+      "checkerboard_input_0_shape_height_out": {
         "ports": [
-          "program_in",
-          "Rect/program_in"
-        ]
-      },
-      "y_0_1": {
-        "ports": [
-          "y",
-          "Rect/y"
-        ]
-      },
-      "shape_height_0_1": {
-        "ports": [
-          "shape_height",
-          "Rect/shape_height"
-        ]
-      },
-      "shape_width_0_1": {
-        "ports": [
-          "shape_width",
-          "Rect/shape_width"
-        ]
-      },
-      "x_0_1": {
-        "ports": [
-          "x",
-          "Rect/x"
-        ]
-      },
-      "color_in_0_1": {
-        "ports": [
-          "color_in",
-          "Rect/color_in"
+          "checkerboard_input_0/shape_height_out",
+          "top_left/shape_height"
         ]
       }
     }
